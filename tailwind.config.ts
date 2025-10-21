@@ -13,6 +13,7 @@ const config: Config = {
         'deep-purple': '#1A0B2E',
         'electric-cyan': '#00E5FF',
         'vibrant-purple': '#B026FF',
+        'vibrant-orange': '#FF6B35',
         'soft-white': '#F8FAFC',
         'deploy-dark': '#0D1117',
         'deliver-light': '#1C2333',

@@ -6,7 +6,7 @@ interface TeaserCard {
   icon: JSX.Element
   title: string
   description: string
-  color: 'cyan' | 'purple' | 'gradient'
+  color: 'cyan' | 'purple' | 'orange' | 'gradient'
 }
 
 const teasers: TeaserCard[] = [
@@ -18,7 +18,7 @@ const teasers: TeaserCard[] = [
     ),
     title: 'Lightning Fast',
     description: 'We offer over 100 built in self-hosted web applications to help build your business. Full documentation and tutorials will be available.',
-    color: 'cyan',
+    color: 'orange',
   },
   {
     icon: (
@@ -28,7 +28,7 @@ const teasers: TeaserCard[] = [
     ),
     title: 'Learn on the Fly',
     description: 'No prior tech knowledge to get started, for real. We can take you from zero knowledge to launching a website in under an hour! All skill levels are welcome here!',
-    color: 'cyan',
+    color: 'orange',
   },
   {
     icon: (
@@ -38,7 +38,7 @@ const teasers: TeaserCard[] = [
     ),
     title: 'Built for Everyone',
     description: 'Our platform is truly designed for everyone. Whether you are looking for a side-hustle or to hustle faster - you are in the right place.',
-    color: 'purple',
+    color: 'orange',
   },
 ]
 
@@ -96,6 +96,13 @@ export default function HeroSection() {
           bg: 'bg-vibrant-purple/5',
           text: 'text-vibrant-purple',
           glow: 'group-hover:shadow-vibrant-purple/20',
+        }
+      case 'orange':
+        return {
+          border: 'border-vibrant-orange/20 hover:border-vibrant-orange/50',
+          bg: 'bg-vibrant-orange/5',
+          text: 'text-vibrant-orange',
+          glow: 'group-hover:shadow-vibrant-orange/20',
         }
       case 'gradient':
         return {
