@@ -17,7 +17,7 @@ const teasers: TeaserCard[] = [
       </svg>
     ),
     title: 'Lightning Fast',
-    description: 'We offer over 100 built in self-hosted web applications to help build your business. Full documentation and tutorials will be available.',
+    description: 'We offer over 100 built in self-hosted web applications to help build your business. From simple websites to AI driven applications, we have a service to cover it.',
     color: 'orange',
   },
   {
