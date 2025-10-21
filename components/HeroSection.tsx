@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import EmailForm from './EmailForm'
 
 interface TeaserCard {
   icon: JSX.Element
@@ -197,7 +196,7 @@ export default function HeroSection() {
               We're reimagining <span className="gradient-text font-semibold">the entire process</span>.
             </p>
 
-            {/* Launch Date and Email Form */}
+            {/* Launch Date */}
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mb-10">
               <div
                 className={`inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-1000 delay-300 ${
@@ -207,14 +206,6 @@ export default function HeroSection() {
                 <p className="text-base md:text-lg font-semibold gradient-text">
                   Launching Late 2025
                 </p>
-              </div>
-
-              <div
-                className={`transition-all duration-1000 delay-500 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-              >
-                <EmailForm />
               </div>
             </div>
           </div>
