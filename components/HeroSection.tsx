@@ -13,9 +13,10 @@ const teasers: TeaserCard[] = [
   {
     icon: (
       <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     title: 'Built for Everyone',
     description: 'Our platform is truly designed for everyone. Whether you are looking for a side-hustle or to hustle faster - you are in the right place.',
@@ -23,6 +24,10 @@ const teasers: TeaserCard[] = [
     title: 'Lightning Fast',
     description: 'We offer over 100 built in self-hosted web applications to help build your business. Full documentation and tutorials will be available.',
 >>>>>>> parent of 7d39da5 (Update HeroSection.tsx)
+=======
+    title: 'Lightning Fast',
+    description: 'We offer over 100 built in self-hosted web applications to help build your business. From simple websites to AI driven applications, we have a service to cover it.',
+>>>>>>> parent of 87493a4 (Update HeroSection.tsx)
     color: 'orange',
   },
   {
@@ -38,11 +43,11 @@ const teasers: TeaserCard[] = [
   {
     icon: (
       <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     ),
-    title: 'Lightning Fast',
-    description: 'We offer over 100 built in self-hosted web applications to help build your business. From simple websites to AI driven applications, we have a service to cover it.',
+    title: 'Built for Everyone',
+    description: 'Our platform is truly designed for everyone. Whether you are looking for a side-hustle or to hustle faster - you are in the right place.',
     color: 'orange',
   },
 ]
