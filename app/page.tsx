@@ -25,7 +25,7 @@ export default function Home() {
                   <span className="text-white/50 mx-2">&</span>
                   <span className="text-vibrant-purple">Deliver</span>
                 </p>
-                <p className="text-white/50 text-sm mt-1">Coming Late 2025</p>
+                <p className="text-white/50 text-sm mt-1">Coming Mid 2026</p>
               </div>
 
 

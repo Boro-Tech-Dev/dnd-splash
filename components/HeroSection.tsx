@@ -211,7 +211,7 @@ export default function HeroSection() {
                 }`}
               >
                 <p className="text-base md:text-lg font-semibold gradient-text">
-                  Launching Late 2025
+                  Launching Mid 2026
                 </p>
               </div>
             </div>
