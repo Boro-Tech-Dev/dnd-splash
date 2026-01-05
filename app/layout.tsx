@@ -10,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Deploy & Deliver - Arriving Mid 2026',
-  description: 'Something new is on the horizon. A fresh approach to building, deploying, and delivering digital excellence. Launching Early 2026.',
+  description: 'Something new is on the horizon. A fresh approach to building, deploying, and delivering digital excellence. Launching Mid 2026.',
   keywords: ['deploy', 'deliver', 'digital agency', 'web services', 'coming soon'],
   authors: [{ name: 'Deploy & Deliver' }],
   openGraph: {
