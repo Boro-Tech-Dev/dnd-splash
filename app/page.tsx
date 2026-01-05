@@ -31,7 +31,7 @@ export default function Home() {
 
               {/* Copyright */}
               <div className="text-white/50 text-sm text-center md:text-right">
-                <p>&copy; 2025 Deploy & Deliver</p>
+                <p>&copy; 2026 Deploy & Deliver</p>
                 <p className="text-xs mt-1">Built with purpose</p>
               </div>
             </div>
