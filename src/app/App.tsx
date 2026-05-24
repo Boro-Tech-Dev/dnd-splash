@@ -88,11 +88,11 @@ export function Home() {
             className="flex flex-wrap gap-3 mb-12"
           >
             <button
-              className="group px-6 py-3 bg-gradient-to-r from-[#00d9ff] to-[#00ff88] text-black rounded-xl flex items-center gap-2 hover:shadow-[0_0_40px_rgba(0,217,255,0.6)] transition-all duration-300"
+              disabled
+              className="px-6 py-3 bg-gradient-to-r from-[#00d9ff] to-[#00ff88] text-black rounded-xl flex items-center gap-2 cursor-default"
               style={{ fontWeight: 700, fontSize: '1.125rem' }}
             >
-              Start Building
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Coming Late 2026
             </button>
             <Link
               to="/explore"
@@ -527,14 +527,13 @@ export function Home() {
             <p className="text-2xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed">
               DeployDeliver gives you the tools, structure, and live environments to build confidence by doing. Not someday. Not after another 40-hour course. <span className="text-[#00ff88]" style={{ fontWeight: 700 }}>Now.</span>
             </p>
-            <Link
-              to="/explore"
-              className="group inline-block px-8 py-4 bg-gradient-to-r from-[#00ff88] to-[#00d9ff] text-black rounded-xl hover:shadow-[0_0_60px_rgba(0,255,136,0.6)] transition-all duration-300"
+            <button
+              disabled
+              className="inline-block px-8 py-4 bg-gradient-to-r from-[#00ff88] to-[#00d9ff] text-black rounded-xl cursor-default"
               style={{ fontWeight: 800, fontSize: '1.25rem' }}
             >
-              Open the Launchpad
-              <ArrowRight className="inline-block w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              Coming Late 2026
+            </button>
           </motion.div>
         </div>
       </section>
@@ -625,14 +624,13 @@ export function Home() {
             </p>
 
             <div className="flex flex-wrap gap-3 justify-center mb-10">
-              <Link
-                to="/explore"
-                className="group px-8 py-4 bg-gradient-to-r from-[#00d9ff] to-[#3b82f6] text-white rounded-xl flex items-center gap-2 hover:shadow-[0_0_60px_rgba(0,217,255,0.6)] transition-all duration-300"
+              <button
+                disabled
+                className="px-8 py-4 bg-gradient-to-r from-[#00d9ff] to-[#3b82f6] text-white rounded-xl flex items-center gap-2 cursor-default"
                 style={{ fontWeight: 800, fontSize: '1.25rem' }}
               >
-                Start Deploying
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </Link>
+                Coming Late 2026
+              </button>
               <Link
                 to="/explore"
                 className="px-8 py-4 bg-white/5 border-2 border-white/20 text-white rounded-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300 backdrop-blur-sm inline-block"
