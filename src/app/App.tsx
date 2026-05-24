@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router";
 import {
   Rocket,
   Terminal,
@@ -26,7 +27,7 @@ import {
 } from "lucide-react";
 import Logo from "../imports/dd-core-logo.svg";
 
-export default function App() {
+export function Home() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white dark">
       {/* Hero Section */}
@@ -93,12 +94,13 @@ export default function App() {
               Start Building
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button
+            <Link
+              to="/explore"
               className="px-6 py-3 bg-white/5 border-2 border-[#00d9ff]/50 text-white rounded-xl hover:bg-white/10 hover:border-[#00d9ff] transition-all duration-300 backdrop-blur-sm"
-              style={{ fontWeight: 600, fontSize: '1.125rem' }}
+              style={{ fontWeight: 600, fontSize: '1.125rem', display: 'inline-block' }}
             >
               Explore Deployable Apps
-            </button>
+            </Link>
           </motion.div>
 
           {/* Stats Strip with neon borders */}
@@ -525,13 +527,14 @@ export default function App() {
             <p className="text-2xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed">
               DeployDeliver gives you the tools, structure, and live environments to build confidence by doing. Not someday. Not after another 40-hour course. <span className="text-[#00ff88]" style={{ fontWeight: 700 }}>Now.</span>
             </p>
-            <button
-              className="group px-8 py-4 bg-gradient-to-r from-[#00ff88] to-[#00d9ff] text-black rounded-xl hover:shadow-[0_0_60px_rgba(0,255,136,0.6)] transition-all duration-300"
+            <Link
+              to="/explore"
+              className="group inline-block px-8 py-4 bg-gradient-to-r from-[#00ff88] to-[#00d9ff] text-black rounded-xl hover:shadow-[0_0_60px_rgba(0,255,136,0.6)] transition-all duration-300"
               style={{ fontWeight: 800, fontSize: '1.25rem' }}
             >
               Open the Launchpad
               <ArrowRight className="inline-block w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -622,19 +625,21 @@ export default function App() {
             </p>
 
             <div className="flex flex-wrap gap-3 justify-center mb-10">
-              <button
+              <Link
+                to="/explore"
                 className="group px-8 py-4 bg-gradient-to-r from-[#00d9ff] to-[#3b82f6] text-white rounded-xl flex items-center gap-2 hover:shadow-[0_0_60px_rgba(0,217,255,0.6)] transition-all duration-300"
                 style={{ fontWeight: 800, fontSize: '1.25rem' }}
               >
                 Start Deploying
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button
-                className="px-8 py-4 bg-white/5 border-2 border-white/20 text-white rounded-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300 backdrop-blur-sm"
+              </Link>
+              <Link
+                to="/explore"
+                className="px-8 py-4 bg-white/5 border-2 border-white/20 text-white rounded-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300 backdrop-blur-sm inline-block"
                 style={{ fontWeight: 700, fontSize: '1.25rem' }}
               >
                 View Skill Paths
-              </button>
+              </Link>
             </div>
 
             <div className="flex flex-wrap justify-center gap-5 text-white/70">
@@ -719,4 +724,21 @@ function InfoCard({ icon: Icon, label, value, color }: { icon: any; label: strin
       </div>
     </div>
   );
+}
+
+import { RouterProvider, createBrowserRouter } from 'react-router';
+import ExploreApps from './pages/ExploreApps';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    children: [
+      { index: true, Component: Home },
+      { path: "explore", Component: ExploreApps },
+    ],
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
