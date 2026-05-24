@@ -631,13 +631,13 @@ export function Home() {
               >
                 Launching Q4 2026
               </button>
-              <button
-                disabled
-                className="px-8 py-4 bg-white/5 border-2 border-white/20 text-white rounded-xl backdrop-blur-sm inline-block cursor-default"
+              <Link
+                to="/explore"
+                className="px-8 py-4 bg-white/5 border-2 border-white/20 text-white rounded-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300 backdrop-blur-sm inline-block"
                 style={{ fontWeight: 700, fontSize: '1.25rem' }}
               >
-                Launching Q4 2026
-              </button>
+                Learning Paths
+              </Link>
             </div>
 
             <div className="flex flex-wrap justify-center gap-5 text-white/70">
