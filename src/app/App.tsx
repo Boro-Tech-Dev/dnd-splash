@@ -94,13 +94,13 @@ export function Home() {
             >
               Launching Q4 2026
             </button>
-            <button
-              disabled
-              className="px-6 py-3 bg-white/5 border-2 border-[#00d9ff]/50 text-white rounded-xl backdrop-blur-sm cursor-default"
+            <Link
+              to="/explore"
+              className="px-6 py-3 bg-white/5 border-2 border-[#00d9ff]/50 text-white rounded-xl hover:bg-white/10 hover:border-[#00d9ff] transition-all duration-300 backdrop-blur-sm"
               style={{ fontWeight: 600, fontSize: '1.125rem', display: 'inline-block' }}
             >
-              Launching Q4 2026
-            </button>
+              Learning Paths
+            </Link>
           </motion.div>
 
           {/* Stats Strip with neon borders */}
