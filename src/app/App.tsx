@@ -44,7 +44,7 @@ export default function App() {
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#00d9ff] rounded-full blur-[150px] opacity-20" />
         <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-[#a855f7] rounded-full blur-[150px] opacity-20" />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16">
+        <div className="relative max-w-7xl mx-auto px-4 py-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ export default function App() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] to-[#1a0a0a]" />
         <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#ff6b00] rounded-full blur-[120px] opacity-10" />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16">
+        <div className="relative max-w-7xl mx-auto px-4 py-6">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -299,7 +299,7 @@ export default function App() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0f0a1a] to-[#0a0a0f]" />
         <div className="absolute bottom-0 left-1/2 w-[600px] h-[600px] bg-[#a855f7] rounded-full blur-[150px] opacity-20" />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16">
+        <div className="relative max-w-7xl mx-auto px-4 py-6">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -388,7 +388,7 @@ export default function App() {
           opacity: 0.08
         }} />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16">
+        <div className="relative max-w-7xl mx-auto px-4 py-6">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -442,7 +442,7 @@ export default function App() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] to-[#0a1a0f]" />
         <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#00ff88] rounded-full blur-[140px] opacity-15" />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16">
+        <div className="relative max-w-7xl mx-auto px-4 py-6">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -503,7 +503,7 @@ export default function App() {
         }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#00d9ff] via-[#00ff88] to-[#a855f7] rounded-full blur-[200px] opacity-20" />
 
-        <div className="relative max-w-6xl mx-auto px-4 py-24 text-center">
+        <div className="relative max-w-6xl mx-auto px-4 py-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -540,7 +540,7 @@ export default function App() {
       <section className="relative border-b border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0a0f1a] to-[#0a0a0f]" />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16">
+        <div className="relative max-w-7xl mx-auto px-4 py-6">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -607,7 +607,7 @@ export default function App() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/20 via-transparent to-[#ff6b00]/20" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-r from-[#3b82f6] via-[#00d9ff] to-[#ff6b00] rounded-full blur-[200px] opacity-20" />
 
-        <div className="relative max-w-6xl mx-auto px-4 py-24 text-center">
+        <div className="relative max-w-6xl mx-auto px-4 py-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
