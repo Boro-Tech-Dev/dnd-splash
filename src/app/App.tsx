@@ -92,14 +92,14 @@ export function Home() {
               className="px-6 py-3 bg-gradient-to-r from-[#00d9ff] to-[#00ff88] text-black rounded-xl flex items-center gap-2 cursor-default"
               style={{ fontWeight: 700, fontSize: '1.125rem' }}
             >
-              Launching late 2026
+              Launching Q4 2026
             </button>
             <button
               disabled
               className="px-6 py-3 bg-white/5 border-2 border-[#00d9ff]/50 text-white rounded-xl backdrop-blur-sm cursor-default"
               style={{ fontWeight: 600, fontSize: '1.125rem', display: 'inline-block' }}
             >
-              Launching late 2026
+              Launching Q4 2026
             </button>
           </motion.div>
 
@@ -532,7 +532,7 @@ export function Home() {
               className="inline-block px-8 py-4 bg-gradient-to-r from-[#00ff88] to-[#00d9ff] text-black rounded-xl cursor-default"
               style={{ fontWeight: 800, fontSize: '1.25rem' }}
             >
-              Launching late 2026
+              Launching Q4 2026
             </button>
           </motion.div>
         </div>
@@ -629,14 +629,14 @@ export function Home() {
                 className="px-8 py-4 bg-gradient-to-r from-[#00d9ff] to-[#3b82f6] text-white rounded-xl flex items-center gap-2 cursor-default"
                 style={{ fontWeight: 800, fontSize: '1.25rem' }}
               >
-                Launching late 2026
+                Launching Q4 2026
               </button>
               <button
                 disabled
                 className="px-8 py-4 bg-white/5 border-2 border-white/20 text-white rounded-xl backdrop-blur-sm inline-block cursor-default"
                 style={{ fontWeight: 700, fontSize: '1.25rem' }}
               >
-                Launching late 2026
+                Launching Q4 2026
               </button>
             </div>
 
