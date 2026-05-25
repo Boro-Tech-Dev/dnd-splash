@@ -4,9 +4,14 @@ const HAZARD_STRIPE =
 export function ProblematticSolutionsFooter() {
   return (
     <footer className="relative border-t border-white/10 bg-[#0a0a0f]">
-      <div className="h-3 w-full" style={{ background: HAZARD_STRIPE }} aria-hidden />
+      <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col items-center gap-4">
+        <p
+          className="text-center text-sm text-white/50"
+          style={{ fontWeight: 500, letterSpacing: "0.02em" }}
+        >
+          Another problematic production by:
+        </p>
 
-      <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
         <a
           href="https://problematticsolutions.com"
           target="_blank"
@@ -39,15 +44,6 @@ export function ProblematticSolutionsFooter() {
           </span>
         </a>
       </div>
-
-      <div className="h-2 w-full" style={{ background: HAZARD_STRIPE }} aria-hidden />
-
-      <p
-        className="text-center text-sm text-white/50 py-5 px-4 border-t border-white/5"
-        style={{ fontWeight: 500, letterSpacing: "0.02em" }}
-      >
-        Another Problemattic Solution…
-      </p>
     </footer>
   );
 }
