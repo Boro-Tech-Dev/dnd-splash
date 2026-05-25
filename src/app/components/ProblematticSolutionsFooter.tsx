@@ -9,25 +9,27 @@ export function ProblematticSolutionsFooter() {
           href="https://problematticsolutions.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col items-center gap-3 text-center no-underline"
+          className="group inline-flex flex-col items-center text-center no-underline"
         >
-          <div
-            className="h-1.5 w-48 max-w-full rounded-full opacity-90 group-hover:opacity-100 transition-opacity"
-            style={{ background: HAZARD_STRIPE }}
-            aria-hidden
-          />
+          <div className="inline-flex flex-col items-stretch w-fit gap-2">
+            <div
+              className="h-1.5 w-full opacity-90 group-hover:opacity-100 transition-opacity"
+              style={{ background: HAZARD_STRIPE }}
+              aria-hidden
+            />
 
-          <div
-            className="flex flex-wrap items-baseline justify-center gap-x-2"
-            style={{ fontWeight: 800, letterSpacing: "-0.02em" }}
-          >
-            <span className="text-2xl sm:text-3xl tracking-tight">
-              <span className="text-white">Proble</span>
-              <span className="text-[#facc15]">Mattic</span>
-            </span>
-            <span className="text-2xl sm:text-3xl tracking-tight text-[#d4d4d8]">
-              Solutions
-            </span>
+            <div
+              className="flex items-baseline justify-center gap-x-2 whitespace-nowrap"
+              style={{ fontWeight: 800, letterSpacing: "-0.02em" }}
+            >
+              <span className="text-2xl sm:text-3xl tracking-tight">
+                <span className="text-white">Proble</span>
+                <span className="text-[#facc15]">Mattic</span>
+              </span>
+              <span className="text-2xl sm:text-3xl tracking-tight text-[#d4d4d8]">
+                Solutions
+              </span>
+            </div>
           </div>
         </a>
       </div>
