@@ -4,14 +4,7 @@ const HAZARD_STRIPE =
 export function ProblematticSolutionsFooter() {
   return (
     <footer className="relative border-t border-white/10 bg-[#0a0a0f]">
-      <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col items-center gap-4">
-        <p
-          className="text-center text-sm text-white/50"
-          style={{ fontWeight: 500, letterSpacing: "0.02em" }}
-        >
-          Another problematic production by:
-        </p>
-
+      <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col items-center">
         <a
           href="https://problematticsolutions.com"
           target="_blank"
@@ -38,10 +31,6 @@ export function ProblematticSolutionsFooter() {
               Solutions
             </span>
           </div>
-
-          <span className="text-xs uppercase tracking-[0.25em] text-white/40 group-hover:text-white/60 transition-colors">
-            problematticsolutions.com
-          </span>
         </a>
       </div>
     </footer>
