@@ -17,17 +17,15 @@ export function ProblematticSolutionsFooter() {
             aria-hidden
           />
 
-          <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-0 gap-0.5">
-            <span
-              className="text-2xl sm:text-3xl tracking-tight text-white group-hover:text-[#facc15] transition-colors"
-              style={{ fontWeight: 800, letterSpacing: "-0.02em" }}
-            >
-              Problemattic
+          <div
+            className="flex flex-wrap items-baseline justify-center gap-x-2"
+            style={{ fontWeight: 800, letterSpacing: "-0.02em" }}
+          >
+            <span className="text-2xl sm:text-3xl tracking-tight">
+              <span className="text-white">Proble</span>
+              <span className="text-[#facc15]">Mattic</span>
             </span>
-            <span
-              className="text-2xl sm:text-3xl tracking-tight text-[#facc15] sm:ml-0"
-              style={{ fontWeight: 800, letterSpacing: "-0.02em" }}
-            >
+            <span className="text-2xl sm:text-3xl tracking-tight text-[#d4d4d8]">
               Solutions
             </span>
           </div>
