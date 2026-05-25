@@ -25,7 +25,7 @@ import {
   CheckCircle2,
   Circle
 } from "lucide-react";
-import Logo from "../imports/dd-core-logo.svg";
+import Logo from "../assets/dd-core-logo.svg";
 
 export function Home() {
   return (
@@ -46,62 +46,75 @@ export function Home() {
         <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-[#a855f7] rounded-full blur-[150px] opacity-20" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-2 mb-8"
-          >
-            <img src={Logo} alt="DeployDeliver" className="h-12 w-auto" />
-            <div className="h-[2px] flex-1 bg-gradient-to-r from-[#00d9ff] via-[#00ff88] to-transparent" />
-          </motion.div>
+          <div className="h-[2px] mb-8 bg-gradient-to-r from-[#00d9ff] via-[#00ff88] to-transparent" />
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl mb-5 max-w-5xl leading-[1.05]"
-            style={{
-              fontWeight: 800,
-              background: 'linear-gradient(135deg, #ffffff 0%, #00d9ff 50%, #00ff88 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              textShadow: '0 0 80px rgba(0, 217, 255, 0.3)'
-            }}
-          >
-            The job market is chaos.<br />Build your way out.
-          </motion.h1>
+          <div className="grid lg:grid-cols-[1fr_minmax(280px,420px)] gap-8 lg:gap-12 items-center mb-12">
+            <div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-5xl md:text-7xl mb-5 leading-[1.05]"
+                style={{
+                  fontWeight: 800,
+                  background: 'linear-gradient(135deg, #ffffff 0%, #00d9ff 50%, #00ff88 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  textShadow: '0 0 80px rgba(0, 217, 255, 0.3)'
+                }}
+              >
+                The job market is chaos.<br />Build your way out.
+              </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-white/70 max-w-3xl mb-8 leading-relaxed"
-          >
-            DeployDeliver helps you launch real open-source apps, follow guided learning paths, and turn practical tech skills into career momentum, freelance services, and side-hustle opportunities.
-          </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-xl text-white/70 mb-8 leading-relaxed"
+              >
+                DeployDeliver helps you launch real open-source apps, follow guided learning paths, and turn practical tech skills into career momentum, freelance services, and side-hustle opportunities.
+              </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap gap-3 mb-12"
-          >
-            <button
-              disabled
-              className="px-6 py-3 bg-gradient-to-r from-[#00d9ff] to-[#00ff88] text-black rounded-xl flex items-center gap-2 cursor-default"
-              style={{ fontWeight: 700, fontSize: '1.125rem' }}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-wrap gap-3"
+              >
+                <button
+                  disabled
+                  className="px-6 py-3 bg-gradient-to-r from-[#00d9ff] to-[#00ff88] text-black rounded-xl flex items-center gap-2 cursor-default"
+                  style={{ fontWeight: 700, fontSize: '1.125rem' }}
+                >
+                  Launching Q4 2026
+                </button>
+                <Link
+                  to="/explore"
+                  className="px-6 py-3 bg-white/5 border-2 border-[#00d9ff]/50 text-white rounded-xl hover:bg-white/10 hover:border-[#00d9ff] transition-all duration-300 backdrop-blur-sm"
+                  style={{ fontWeight: 600, fontSize: '1.125rem', display: 'inline-block' }}
+                >
+                  Learning Paths
+                </Link>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative flex justify-center lg:justify-end"
             >
-              Launching Q4 2026
-            </button>
-            <Link
-              to="/explore"
-              className="px-6 py-3 bg-white/5 border-2 border-[#00d9ff]/50 text-white rounded-xl hover:bg-white/10 hover:border-[#00d9ff] transition-all duration-300 backdrop-blur-sm"
-              style={{ fontWeight: 600, fontSize: '1.125rem', display: 'inline-block' }}
-            >
-              Learning Paths
-            </Link>
-          </motion.div>
+              <div
+                className="absolute inset-0 max-w-sm mx-auto lg:max-w-none lg:mx-0 rounded-full blur-[80px] opacity-30 pointer-events-none"
+                style={{ background: 'radial-gradient(circle, #00d9ff 0%, transparent 70%)' }}
+              />
+              <img
+                src={Logo}
+                alt="DeployDeliver"
+                className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md h-auto drop-shadow-[0_0_60px_rgba(0,217,255,0.35)]"
+              />
+            </motion.div>
+          </div>
 
           {/* Stats Strip with neon borders */}
           <motion.div
