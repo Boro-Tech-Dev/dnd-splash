@@ -26,6 +26,7 @@ import {
   Circle
 } from "lucide-react";
 import Logo from "../assets/dd-core-logo.svg";
+import { ProblematticSolutionsFooter } from "./components/ProblematticSolutionsFooter";
 
 export function Home() {
   return (
@@ -676,6 +677,8 @@ export function Home() {
           </motion.div>
         </div>
       </section>
+
+      <ProblematticSolutionsFooter />
     </div>
   );
 }

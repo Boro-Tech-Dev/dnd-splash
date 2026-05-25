@@ -17,6 +17,7 @@ import {
   Box,
   Code
 } from "lucide-react";
+import { ProblematticSolutionsFooter } from "../components/ProblematticSolutionsFooter";
 
 // Mock Data for the Apps
 const apps = [
@@ -315,6 +316,8 @@ export default function ExploreApps() {
           )}
         </div>
       </main>
+
+      <ProblematticSolutionsFooter />
     </div>
   );
 }
