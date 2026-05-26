@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="DeployDeliver">
-  <rect width="32" height="32" rx="6" fill="#0a0a0f"/>
-  <path
-    fill="#00d9ff"
-    d="M8 6h8.5c5.2 0 8.5 3.4 8.5 8.5S21.7 23 16.5 23H8V6zm4 4v9h4c2.8 0 4.5-1.8 4.5-4.5S18.8 14 16 14h-4z"
-  />
-</svg>
