@@ -24,6 +24,8 @@ const MIME_TYPES = {
   '.txt': 'text/plain; charset=utf-8',
 };
 
+const STATIC_EXTENSIONS = new Set(Object.keys(MIME_TYPES).filter((ext) => ext !== '.html'));
+
 async function serveFile(res, filePath) {
   const data = await readFile(filePath);
   const ext = extname(filePath);
@@ -43,6 +45,12 @@ createServer(async (req, res) => {
       return;
     }
   } catch {
+    const ext = extname(safePath).toLowerCase();
+    if (ext && STATIC_EXTENSIONS.has(ext)) {
+      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('Not Found');
+      return;
+    }
     // Fall through to SPA index.html for client-side routes.
   }
 
