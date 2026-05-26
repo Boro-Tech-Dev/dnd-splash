@@ -6,6 +6,7 @@
   "scripts": {
     "prebuild": "node scripts/generate-favicon-ico.mjs",
     "build": "vite build",
+    "postbuild": "node scripts/verify-build.mjs",
     "dev": "vite",
     "start": "node server.js"
   },

@@ -1,6 +1,6 @@
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
-import { join, extname } from 'node:path';
+import { join, extname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
@@ -22,14 +22,29 @@ const MIME_TYPES = {
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
   '.txt': 'text/plain; charset=utf-8',
+  '.webmanifest': 'application/manifest+json',
 };
 
 const STATIC_EXTENSIONS = new Set(Object.keys(MIME_TYPES).filter((ext) => ext !== '.html'));
 
+function cacheControlFor(filePath) {
+  const ext = extname(filePath).toLowerCase();
+  if (ext === '.html' || ext === '.ico' || ext === '.svg' || ext === '.webmanifest') {
+    return 'no-cache, no-store, must-revalidate';
+  }
+  if (filePath.includes(`${DIST}${sep}assets${sep}`)) {
+    return 'public, max-age=31536000, immutable';
+  }
+  return 'public, max-age=86400';
+}
+
 async function serveFile(res, filePath) {
   const data = await readFile(filePath);
   const ext = extname(filePath);
-  res.writeHead(200, { 'Content-Type': MIME_TYPES[ext] || 'application/octet-stream' });
+  res.writeHead(200, {
+    'Content-Type': MIME_TYPES[ext] || 'application/octet-stream',
+    'Cache-Control': cacheControlFor(filePath),
+  });
   res.end(data);
 }
 
@@ -47,7 +62,10 @@ createServer(async (req, res) => {
   } catch {
     const ext = extname(safePath).toLowerCase();
     if (ext && STATIC_EXTENSIONS.has(ext)) {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.writeHead(404, {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-store',
+      });
       res.end('Not Found');
       return;
     }
@@ -57,7 +75,10 @@ createServer(async (req, res) => {
   try {
     await serveFile(res, join(DIST, 'index.html'));
   } catch {
-    res.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.writeHead(503, {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'no-store',
+    });
     res.end('Build output not found. Run npm run build first.');
   }
 }).listen(PORT, () => {
