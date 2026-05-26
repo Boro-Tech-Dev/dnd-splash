@@ -27,6 +27,18 @@ import {
 } from "lucide-react";
 import Logo from "../assets/dd-core-logo.svg";
 import { ProblematticSolutionsFooter } from "./components/ProblematticSolutionsFooter";
+import { RouterProvider, createBrowserRouter } from "react-router";
+import ExploreApps from "./pages/ExploreApps";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    children: [
+      { index: true, Component: Home },
+      { path: "explore", Component: ExploreApps },
+    ],
+  },
+]);
 
 export function Home() {
   return (
@@ -739,19 +751,6 @@ function InfoCard({ icon: Icon, label, value, color }: { icon: any; label: strin
     </div>
   );
 }
-
-import { RouterProvider, createBrowserRouter } from 'react-router';
-import ExploreApps from './pages/ExploreApps';
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    children: [
-      { index: true, Component: Home },
-      { path: "explore", Component: ExploreApps },
-    ],
-  },
-]);
 
 export default function App() {
   return <RouterProvider router={router} />;

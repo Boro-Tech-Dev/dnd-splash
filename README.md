@@ -1,11 +1,12 @@
 
-  # Use Markdown and Logo
+# DeployDeliver
 
-  This is a code bundle for Use Markdown and Logo. The original project is available at https://www.figma.com/design/AWdP9k5QTTcWLTMhaWT10v/Use-Markdown-and-Logo.
+Splash site for DeployDeliver — deploy real open-source apps, learn practical tech skills, and build career momentum.
 
-  ## Running the code
+## Running the code
 
-  Run `npm i` to install the dependencies.
+Run `npm i` to install the dependencies.
 
-  Run `npm run dev` to start the development server.
-  
+Run `npm run dev` to start the development server.
+
+Run `npm run build && npm start` to build and serve production output from `dist/`.
