@@ -255,8 +255,8 @@ Make the UI dense but readable. The layout should be compact and financial-dashb
 
 Sample UI copy:
 
-“Next recommended skill: Reverse Proxy Basics”
-“Deployable service: Ghost CMS”
+“Next recommended skill: Web Routing Basics”
+“Ready-to-ship stack: Content Stack”
 “Side hustle path: Local business website hosting”
 “Skill confidence: Building”
 “Launch status: Ready”

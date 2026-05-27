@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { Link } from "react-router";
 import {
   Rocket,
   Terminal,
@@ -25,20 +24,8 @@ import {
   CheckCircle2,
   Circle
 } from "lucide-react";
-import { RouterProvider, createBrowserRouter } from "react-router";
-import ExploreApps from "./pages/ExploreApps";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    children: [
-      { index: true, Component: Home },
-      { path: "explore", Component: ExploreApps },
-    ],
-  },
-]);
-
-export function Home() {
+export default function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white dark">
       {/* Hero Section */}
@@ -99,13 +86,13 @@ export function Home() {
                 >
                   Launching Q4 2026
                 </button>
-                <Link
-                  to="/explore"
+                <a
+                  href="#learning-paths"
                   className="px-6 py-3 bg-white/5 border-2 border-[#00d9ff]/50 text-white rounded-xl hover:bg-white/10 hover:border-[#00d9ff] transition-all duration-300 backdrop-blur-sm"
                   style={{ fontWeight: 600, fontSize: '1.125rem', display: 'inline-block' }}
                 >
                   Learning Paths
-                </Link>
+                </a>
               </motion.div>
             </div>
 
@@ -327,7 +314,7 @@ export function Home() {
       </section>
 
       {/* Side Hustle Pathways Section */}
-      <section className="relative border-b border-white/10 overflow-hidden">
+      <section id="learning-paths" className="relative border-b border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0f0a1a] to-[#0a0a0f]" />
         <div className="absolute bottom-0 left-1/2 w-[600px] h-[600px] bg-[#a855f7] rounded-full blur-[150px] opacity-20" />
 
@@ -357,12 +344,12 @@ export function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
-              { tool: "Ghost CMS", skill: "Content management", service: "Website deployment services", difficulty: "Beginner", icon: Code, color: "#00d9ff" },
-              { tool: "n8n Automation", skill: "Workflow automation", service: "AI chatbot setup", difficulty: "Intermediate", icon: Zap, color: "#ff6b00" },
-              { tool: "Metabase", skill: "Data analytics", service: "Analytics dashboards", difficulty: "Intermediate", icon: BarChart3, color: "#a855f7" },
-              { tool: "Supabase", skill: "Backend services", service: "CRM/client portal setup", difficulty: "Advanced", icon: Database, color: "#00ff88" },
-              { tool: "Nginx Proxy", skill: "Reverse proxy", service: "Local business tech stacks", difficulty: "Beginner", icon: Cloud, color: "#3b82f6" },
-              { tool: "Directus", skill: "Headless CMS", service: "Knowledge base portals", difficulty: "Intermediate", icon: Layers, color: "#ff6b00" }
+              { tool: "Content Stack", skill: "Content management", service: "Website deployment services", difficulty: "Beginner", icon: Code, color: "#00d9ff" },
+              { tool: "Workflow Builder", skill: "Workflow automation", service: "AI chatbot setup", difficulty: "Intermediate", icon: Zap, color: "#ff6b00" },
+              { tool: "Dashboard Kit", skill: "Data reporting", service: "Client reporting dashboards", difficulty: "Intermediate", icon: BarChart3, color: "#a855f7" },
+              { tool: "Backend Kit", skill: "Backend services", service: "CRM/client portal setup", difficulty: "Advanced", icon: Database, color: "#00ff88" },
+              { tool: "Web Routing", skill: "Traffic routing", service: "Local business tech stacks", difficulty: "Beginner", icon: Cloud, color: "#3b82f6" },
+              { tool: "Knowledge Base", skill: "Headless CMS", service: "Knowledge base portals", difficulty: "Intermediate", icon: Layers, color: "#ff6b00" }
             ].map((path, i) => (
               <motion.div
                 key={i}
@@ -595,24 +582,24 @@ export function Home() {
             <PreviewPanel
               title="Service Catalog"
               items={[
-                { label: "Ghost CMS", status: "Ready", color: "#00ff88" },
-                { label: "Metabase", status: "Popular", color: "#ff6b00" },
-                { label: "n8n", status: "New", color: "#00d9ff" }
+                { label: "Content Stack", status: "Ready", color: "#00ff88" },
+                { label: "Dashboard Kit", status: "Popular", color: "#ff6b00" },
+                { label: "Workflow Builder", status: "New", color: "#00d9ff" }
               ]}
             />
             <PreviewPanel
               title="Active Deployments"
               items={[
                 { label: "Portfolio Site", status: "Running", color: "#00ff88" },
-                { label: "Analytics DB", status: "Building", color: "#ff6b00" },
-                { label: "API Gateway", status: "Ready", color: "#00d9ff" }
+                { label: "Reporting DB", status: "Building", color: "#ff6b00" },
+                { label: "API Layer", status: "Ready", color: "#00d9ff" }
               ]}
             />
             <PreviewPanel
               title="Learning Track Progress"
               items={[
-                { label: "Docker Basics", status: "75%", color: "#00ff88" },
-                { label: "Reverse Proxy", status: "45%", color: "#ff6b00" },
+                { label: "Container Basics", status: "75%", color: "#00ff88" },
+                { label: "Web Routing", status: "45%", color: "#ff6b00" },
                 { label: "Database Admin", status: "12%", color: "#ffffff" }
               ]}
             />
@@ -621,14 +608,14 @@ export function Home() {
               items={[
                 { label: "Website Hosting", status: "Active", color: "#00ff88" },
                 { label: "CMS Setup", status: "Planning", color: "#3b82f6" },
-                { label: "Analytics Service", status: "Idea", color: "#ffffff" }
+                { label: "Reporting Service", status: "Idea", color: "#ffffff" }
               ]}
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <InfoCard icon={Target} label="Next recommended skill" value="Reverse Proxy Basics" color="#00d9ff" />
-            <InfoCard icon={Rocket} label="Deployable service" value="Ghost CMS" color="#00ff88" />
+            <InfoCard icon={Target} label="Next recommended skill" value="Web Routing Basics" color="#00d9ff" />
+            <InfoCard icon={Rocket} label="Ready-to-ship stack" value="Content Stack" color="#00ff88" />
             <InfoCard icon={Briefcase} label="Portfolio proof" value="4 projects deployed" color="#ff6b00" />
           </div>
         </div>
@@ -661,13 +648,13 @@ export function Home() {
               >
                 Launching Q4 2026
               </button>
-              <Link
-                to="/explore"
+              <a
+                href="#learning-paths"
                 className="px-8 py-4 bg-white/5 border-2 border-white/20 text-white rounded-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300 backdrop-blur-sm inline-block"
                 style={{ fontWeight: 700, fontSize: '1.25rem' }}
               >
                 Learning Paths
-              </Link>
+              </a>
             </div>
 
             <div className="flex flex-wrap justify-center gap-5 text-white/70">
@@ -754,6 +741,3 @@ function InfoCard({ icon: Icon, label, value, color }: { icon: any; label: strin
   );
 }
 
-export default function App() {
-  return <RouterProvider router={router} />;
-}
