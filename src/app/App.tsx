@@ -1,6 +1,6 @@
-import { Suspense, lazy } from "react";
 import { motion } from "motion/react";
 import { AppNavigationProvider, useAppNavigation } from "./appNavigation";
+import ExploreApps from "./pages/ExploreApps";
 import {
   Rocket,
   Terminal,
@@ -26,8 +26,6 @@ import {
   CheckCircle2,
   Circle
 } from "lucide-react";
-
-const ExploreApps = lazy(() => import("./pages/ExploreApps"));
 
 function Home() {
   const { navigate } = useAppNavigation();
@@ -757,17 +755,7 @@ function InfoCard({ icon: Icon, label, value, color }: { icon: any; label: strin
 function AppRoutes() {
   const { page } = useAppNavigation();
 
-  return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen bg-[#0a0a0f] text-white flex items-center justify-center">
-          Loading…
-        </div>
-      }
-    >
-      {page === "explore" ? <ExploreApps /> : <Home />}
-    </Suspense>
-  );
+  return page === "explore" ? <ExploreApps /> : <Home />;
 }
 
 export default function App() {
