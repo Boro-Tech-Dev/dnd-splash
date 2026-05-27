@@ -1,4 +1,5 @@
-@import 'tailwindcss' source(none);
-@source '../**/*.{js,ts,jsx,tsx}';
-
-@import 'tw-animate-css';
+@import "tailwindcss" source(none);
+@source "../app/App.tsx";
+@source "../app/appNavigation.tsx";
+@source "../app/pages/**/*.tsx";
+@source "../app/components/FadeIn.tsx";

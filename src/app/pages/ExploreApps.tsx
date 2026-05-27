@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import { FadeIn } from "../components/FadeIn";
 import { useAppNavigation } from "../appNavigation";
 import {
   Search,
@@ -234,11 +234,11 @@ export default function ExploreApps() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
             {filteredApps.map((app, i) => (
-              <motion.div
+              <FadeIn
                 key={app.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.03, duration: 0.2 }}
+                delay={i * 0.03}
+                duration={0.2}
+                variant="scale"
                 className="group relative"
               >
                 <div 
@@ -310,7 +310,7 @@ export default function ExploreApps() {
                     </button>
                   </div>
                 </div>
-              </motion.div>
+              </FadeIn>
             ))}
           </div>
           

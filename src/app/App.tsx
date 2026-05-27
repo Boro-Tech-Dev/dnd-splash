@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { FadeIn } from "./components/FadeIn";
 import { AppNavigationProvider, useAppNavigation } from "./appNavigation";
 import ExploreApps from "./pages/ExploreApps";
 import {
@@ -51,37 +51,21 @@ function Home() {
 
           <div className="grid lg:grid-cols-[1fr_minmax(280px,420px)] gap-8 lg:gap-12 items-center mb-12">
             <div>
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-5xl md:text-7xl mb-5 leading-[1.05]"
-                style={{
+              <FadeIn as="h1" delay={0.1} duration={0.6} className="text-5xl md:text-7xl mb-5 leading-[1.05]" style={{
                   fontWeight: 800,
                   background: 'linear-gradient(135deg, #ffffff 0%, #00d9ff 50%, #00ff88 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   textShadow: '0 0 80px rgba(0, 217, 255, 0.3)'
-                }}
-              >
+                }}>
                 The job market is chaos.<br />Build your way out.
-              </motion.h1>
+              </FadeIn>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl text-white/70 mb-8 leading-relaxed"
-              >
+              <FadeIn as="p" delay={0.2} duration={0.6} className="text-xl text-white/70 mb-8 leading-relaxed">
                 DeployDeliver helps you launch real open-source apps, follow guided learning paths, and turn practical tech skills into career momentum, freelance services, and side-hustle opportunities.
-              </motion.p>
+              </FadeIn>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-wrap gap-3"
-              >
+              <FadeIn as="div" delay={0.3} duration={0.6} className="flex flex-wrap gap-3">
                 <button
                   disabled
                   className="px-6 py-3 bg-gradient-to-r from-[#00d9ff] to-[#00ff88] text-black rounded-xl flex items-center gap-2 cursor-default"
@@ -100,15 +84,10 @@ function Home() {
                 >
                   Learning Paths
                 </a>
-              </motion.div>
+              </FadeIn>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex justify-center lg:justify-end"
-            >
+            <FadeIn as="div" delay={0.2} duration={0.8} variant="scale" className="relative flex justify-center lg:justify-end">
               <div
                 className="absolute inset-0 max-w-sm mx-auto lg:max-w-none lg:mx-0 rounded-full blur-[80px] opacity-30 pointer-events-none"
                 style={{ background: 'radial-gradient(circle, #00d9ff 0%, transparent 70%)' }}
@@ -124,16 +103,11 @@ function Home() {
                   D
                 </span>
               </div>
-            </motion.div>
+            </FadeIn>
           </div>
 
           {/* Stats Strip with neon borders */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10"
-          >
+          <FadeIn as="div" delay={0.4} duration={0.6} className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
             {[
               { label: "AI is changing the work", icon: Sparkles, color: "#a855f7" },
               { label: "Practical skills beat passive learning", icon: Target, color: "#00ff88" },
@@ -152,20 +126,15 @@ function Home() {
                 <p className="text-sm text-white/90 leading-snug">{stat.label}</p>
               </div>
             ))}
-          </motion.div>
+          </FadeIn>
 
           {/* Dashboard Preview with glowing effects */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3"
-          >
+          <FadeIn as="div" delay={0.5} duration={0.8} className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <DashboardCard label="Apps deployed" value="47" trend="+12" color="#00d9ff" />
             <DashboardCard label="Skills unlocked" value="23" trend="+5" color="#00ff88" />
             <DashboardCard label="Active paths" value="3" trend="→" color="#3b82f6" />
             <DashboardCard label="Launch ready" value="8" trend="↑" color="#ff6b00" />
-          </motion.div>
+          </FadeIn>
         </div>
       </section>
 
@@ -175,12 +144,7 @@ function Home() {
         <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#ff6b00] rounded-full blur-[120px] opacity-10" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <FadeIn as="div" whenInView duration={0.6} variant="fade">
             <h2
               className="text-5xl md:text-7xl mb-5 max-w-4xl leading-tight"
               style={{
@@ -204,23 +168,16 @@ function Home() {
                 { icon: DollarSign, label: "Side hustle ideas with no technical foundation" },
                 { icon: TrendingUp, label: "Job market pressure with no clear starting point" }
               ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="relative group"
-                >
+                <FadeIn as="div" whenInView delay={i * 0.1} className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b00] to-transparent opacity-20 rounded-xl blur-xl group-hover:opacity-40 transition-opacity" />
                   <div className="relative bg-black/60 border-l-4 border-[#ff6b00] p-4 rounded-xl backdrop-blur-sm hover:bg-black/80 transition-all">
                     <item.icon className="w-7 h-7 mb-3 text-[#ff6b00]" />
                     <p className="text-white leading-snug" style={{ fontWeight: 500 }}>{item.label}</p>
                   </div>
-                </motion.div>
+                </FadeIn>
               ))}
             </div>
-          </motion.div>
+          </FadeIn>
         </div>
       </section>
 
@@ -237,20 +194,14 @@ function Home() {
         <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-[#00ff88] rounded-full blur-[140px] opacity-15" />
 
         <div className="relative max-w-7xl mx-auto px-6 py-24">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl mb-20 text-center leading-tight"
-            style={{
+          <FadeIn as="h2" whenInView variant="fade" className="text-5xl md:text-7xl mb-20 text-center leading-tight" style={{
               fontWeight: 800,
               background: 'linear-gradient(135deg, #ffffff, #00d9ff)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
-            }}
-          >
+            }}>
             DeployDeliver turns learning<br />into launchable skill.
-          </motion.h2>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
@@ -276,14 +227,7 @@ function Home() {
                 features: ["Service catalog", "Portfolio projects", "Client-ready tools", "Revenue opportunities"]
               }
             ].map((solution, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="relative group"
-              >
+              <FadeIn as="div" whenInView delay={i * 0.15} className="relative group">
                 <div
                   className="absolute inset-0 rounded-2xl blur-2xl opacity-0 group-hover:opacity-60 transition-all duration-500"
                   style={{ background: `radial-gradient(circle, ${solution.color}40, transparent)` }}
@@ -314,7 +258,7 @@ function Home() {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -326,16 +270,10 @@ function Home() {
         <div className="absolute bottom-0 left-1/2 w-[600px] h-[600px] bg-[#a855f7] rounded-full blur-[150px] opacity-20" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-6">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl mb-4 leading-tight"
-            style={{
+          <FadeIn as="h2" whenInView variant="fade" className="text-5xl md:text-7xl mb-4 leading-tight" style={{
               fontWeight: 800,
               color: '#ffffff'
-            }}
-          >
+            }}>
             Pick a tool. Learn the workflow.<br />
             <span style={{
               background: 'linear-gradient(135deg, #00ff88, #00d9ff)',
@@ -344,7 +282,7 @@ function Home() {
             }}>
               Package the service.
             </span>
-          </motion.h2>
+          </FadeIn>
           <p className="text-xl text-white/70 max-w-3xl mb-10">
             Example side hustle paths you could build toward
           </p>
@@ -358,14 +296,7 @@ function Home() {
               { tool: "Proxy setup", skill: "Routing basics", service: "Local business tech stacks", difficulty: "Beginner", icon: Cloud, color: "#3b82f6" },
               { tool: "Directus", skill: "Headless CMS", service: "Knowledge base portals", difficulty: "Intermediate", icon: Layers, color: "#ff6b00" }
             ].map((path, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="group relative"
-              >
+              <FadeIn as="div" whenInView delay={i * 0.08} variant="scale" className="group relative">
                 <div
                   className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
                   style={{ background: `radial-gradient(circle, ${path.color}60, transparent)` }}
@@ -398,7 +329,7 @@ function Home() {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -415,18 +346,12 @@ function Home() {
         }} />
 
         <div className="relative max-w-7xl mx-auto px-4 py-6">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl mb-12 text-center leading-tight"
-            style={{
+          <FadeIn as="h2" whenInView variant="fade" className="text-5xl md:text-7xl mb-12 text-center leading-tight" style={{
               fontWeight: 800,
               color: '#ffffff'
-            }}
-          >
+            }}>
             A launchpad for real-world<br />technical confidence.
-          </motion.h2>
+          </FadeIn>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {[
@@ -441,14 +366,7 @@ function Home() {
               { icon: Briefcase, label: "Portfolio-ready project history", color: "#ff6b00" },
               { icon: Terminal, label: "Project templates", color: "#3b82f6" }
             ].map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="group relative"
-              >
+              <FadeIn as="div" whenInView delay={i * 0.05} className="group relative">
                 <div
                   className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-lg"
                   style={{ background: `radial-gradient(circle, ${feature.color}40, transparent)` }}
@@ -457,7 +375,7 @@ function Home() {
                   <feature.icon className="w-7 h-7 mx-auto mb-2" style={{ color: feature.color }} />
                   <p className="text-xs text-white/90 leading-snug">{feature.label}</p>
                 </div>
-              </motion.div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -469,18 +387,12 @@ function Home() {
         <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#00ff88] rounded-full blur-[140px] opacity-15" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-6">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl mb-12 text-center leading-tight"
-            style={{
+          <FadeIn as="h2" whenInView variant="fade" className="text-5xl md:text-7xl mb-12 text-center leading-tight" style={{
               fontWeight: 800,
               color: '#ffffff'
-            }}
-          >
+            }}>
             Built for the people who<br />need leverage now.
-          </motion.h2>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
@@ -490,14 +402,7 @@ function Home() {
               { title: "Freelancers", description: "Package modern open-source tools into client-ready solutions.", icon: Briefcase, color: "#ff6b00" },
               { title: "Builders", description: "Experiment faster with real apps, real stacks, and real workflows.", icon: Rocket, color: "#a855f7" }
             ].map((audience, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative"
-              >
+              <FadeIn as="div" whenInView delay={i * 0.1} className="group relative">
                 <div
                   className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-2xl"
                   style={{ background: `radial-gradient(circle, ${audience.color}40, transparent)` }}
@@ -510,7 +415,7 @@ function Home() {
                   <h3 className="text-2xl text-white mb-3" style={{ fontWeight: 700 }}>{audience.title}</h3>
                   <p className="text-white/70 leading-relaxed">{audience.description}</p>
                 </div>
-              </motion.div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -530,12 +435,7 @@ function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#00d9ff] via-[#00ff88] to-[#a855f7] rounded-full blur-[200px] opacity-20" />
 
         <div className="relative max-w-6xl mx-auto px-4 py-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <FadeIn as="div" whenInView duration={0.8} variant="scale">
             <h2
               className="text-6xl md:text-8xl mb-6 leading-[1.05]"
               style={{
@@ -558,7 +458,7 @@ function Home() {
             >
               Launching Q4 2026
             </button>
-          </motion.div>
+          </FadeIn>
         </div>
       </section>
 
@@ -567,20 +467,14 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0a0f1a] to-[#0a0a0f]" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-6">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl mb-5"
-            style={{
+          <FadeIn as="h2" whenInView variant="fade" className="text-5xl md:text-7xl mb-5" style={{
               fontWeight: 800,
               background: 'linear-gradient(135deg, #ffffff, #00d9ff)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
-            }}
-          >
+            }}>
             Your command center
-          </motion.h2>
+          </FadeIn>
           <p className="text-xl text-white/70 max-w-3xl mb-10">
             A dense, dashboard-style interface built for rapid deployment and skill building
           </p>
@@ -634,12 +528,7 @@ function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-r from-[#3b82f6] via-[#00d9ff] to-[#ff6b00] rounded-full blur-[200px] opacity-20" />
 
         <div className="relative max-w-6xl mx-auto px-4 py-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <FadeIn as="div" whenInView duration={0.8}>
             <h2 className="text-6xl md:text-7xl mb-5 text-white leading-tight" style={{ fontWeight: 800 }}>
               The best way to learn the stack<br />is to launch the stack.
             </h2>
@@ -688,7 +577,7 @@ function Home() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </FadeIn>
         </div>
       </section>
     </div>
