@@ -90,7 +90,7 @@ function Home() {
                   Launching Q4 2026
                 </button>
                 <a
-                  href="/explore"
+                  href="#explore"
                   onClick={(e) => {
                     e.preventDefault();
                     navigate("explore");
@@ -355,7 +355,7 @@ function Home() {
               { tool: "n8n Automation", skill: "Workflow automation", service: "AI chatbot setup", difficulty: "Intermediate", icon: Zap, color: "#ff6b00" },
               { tool: "Metabase", skill: "Data analytics", service: "Analytics dashboards", difficulty: "Intermediate", icon: BarChart3, color: "#a855f7" },
               { tool: "Supabase", skill: "Backend services", service: "CRM/client portal setup", difficulty: "Advanced", icon: Database, color: "#00ff88" },
-              { tool: "Nginx Proxy", skill: "Reverse proxy", service: "Local business tech stacks", difficulty: "Beginner", icon: Cloud, color: "#3b82f6" },
+              { tool: "Proxy setup", skill: "Routing basics", service: "Local business tech stacks", difficulty: "Beginner", icon: Cloud, color: "#3b82f6" },
               { tool: "Directus", skill: "Headless CMS", service: "Knowledge base portals", difficulty: "Intermediate", icon: Layers, color: "#ff6b00" }
             ].map((path, i) => (
               <motion.div
@@ -606,7 +606,7 @@ function Home() {
               title="Learning Track Progress"
               items={[
                 { label: "Docker Basics", status: "75%", color: "#00ff88" },
-                { label: "Reverse Proxy", status: "45%", color: "#ff6b00" },
+                { label: "Routing basics", status: "45%", color: "#ff6b00" },
                 { label: "Database Admin", status: "12%", color: "#ffffff" }
               ]}
             />
@@ -621,7 +621,7 @@ function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <InfoCard icon={Target} label="Next recommended skill" value="Reverse Proxy Basics" color="#00d9ff" />
+            <InfoCard icon={Target} label="Next recommended skill" value="Routing basics" color="#00d9ff" />
             <InfoCard icon={Rocket} label="Deployable service" value="Ghost CMS" color="#00ff88" />
             <InfoCard icon={Briefcase} label="Portfolio proof" value="4 projects deployed" color="#ff6b00" />
           </div>
@@ -656,7 +656,7 @@ function Home() {
                 Launching Q4 2026
               </button>
               <a
-                href="/explore"
+                href="#explore"
                 onClick={(e) => {
                   e.preventDefault();
                   navigate("explore");

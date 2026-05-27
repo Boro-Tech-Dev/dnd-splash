@@ -46,7 +46,7 @@ const apps = [
   { 
     id: 4, name: "Supabase", category: "Backend", 
     description: [
-      "The premier open-source alternative to Firebase, offering a dedicated PostgreSQL database, real-time subscriptions, and out-of-the-box authentication for modern web applications.",
+      "The premier open-source alternative to Firebase, offering a dedicated PostgreSQL database, real-time subscriptions, and built-in user accounts for modern web applications.",
       "Instantly spin up REST and GraphQL APIs, manage row-level security, and utilize Edge Functions. Built for scalability and total data ownership without vendor lock-in."
     ],
     version: "1.110.1", installs: "22k", icon: Database, color: "#00ff88", status: "Popular" 
@@ -63,7 +63,7 @@ const apps = [
     id: 6, name: "Uptime Kuma", category: "Tools", 
     description: [
       "A brilliant, self-hosted monitoring tool offering a fast, reactive dashboard. Keep a close eye on your infrastructure with support for HTTP(s), Ping, DNS, and database monitoring.",
-      "Features an extensive notification system that integrates directly with Slack, Discord, Telegram, and more. Maintain high availability with real-time status pages and incident tracking."
+      "Features an extensive notification system that integrates with Slack, Discord, and other chat tools. Maintain high availability with real-time status pages and incident tracking."
     ],
     version: "1.23.6", installs: "19k", icon: Activity, color: "#00d9ff", status: "Ready" 
   },
@@ -76,10 +76,10 @@ const apps = [
     version: "2.0.0", installs: "9.1k", icon: Globe, color: "#3b82f6", status: "Ready" 
   },
   { 
-    id: 8, name: "Nginx Proxy Manager", category: "Tools", 
+    id: 8, name: "Proxy Manager", category: "Tools", 
     description: [
-      "The ultimate tool for easily exposing your web services securely. It provides a clean, web-based interface for managing reverse proxies and handling SSL certificates seamlessly.",
-      "Automates Let's Encrypt certificate renewal and simplifies advanced routing, access lists, and custom Nginx configurations for self-hosted homelabs and production environments."
+      "A web-based tool for exposing your web services securely. It provides a clean interface for managing routing and HTTPS setup.",
+      "Automates certificate renewal and simplifies advanced routing, access lists, and custom rules for self-hosted homelabs and production environments."
     ],
     version: "2.10.4", installs: "31k", icon: Server, color: "#00ff88", status: "Essential" 
   },
@@ -87,7 +87,7 @@ const apps = [
     id: 9, name: "Appwrite", category: "Backend", 
     description: [
       "A secure, end-to-end backend server for web, mobile, and Flutter developers. It eliminates the complexity of building backend infrastructure from scratch.",
-      "Features built-in user authentication, multiple database integrations, storage management, and localized Edge Functions. Accelerate your product delivery while retaining full self-hosting control."
+      "Features built-in user accounts, multiple database integrations, storage management, and localized Edge Functions. Accelerate your product delivery while retaining full self-hosting control."
     ],
     version: "1.4.3", installs: "11k", icon: Database, color: "#ff1493", status: "Ready" 
   },
@@ -149,7 +149,7 @@ export default function ExploreApps() {
       <header className="relative z-10 border-b border-white/10 bg-black/40 backdrop-blur-md px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <a
-            href="/"
+            href="#"
             onClick={(e) => {
               e.preventDefault();
               navigate("home");
@@ -170,7 +170,7 @@ export default function ExploreApps() {
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-white/40 group-focus-within:text-[#00d9ff] transition-colors" />
             <input 
               type="text" 
-              placeholder="Search deployable apps..." 
+              placeholder="Search apps..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="bg-black/50 border border-white/10 rounded-lg pl-9 pr-4 py-1.5 text-sm w-64 focus:outline-none focus:border-[#00d9ff]/50 focus:ring-1 focus:ring-[#00d9ff]/50 transition-all placeholder:text-white/30"
@@ -224,8 +224,8 @@ export default function ExploreApps() {
         <div className="flex-1 p-6 overflow-y-auto">
           <div className="flex justify-between items-end mb-6">
             <div>
-              <h2 className="text-2xl font-bold mb-1">Available to Deploy</h2>
-              <p className="text-sm text-white/50">Showing {filteredApps.length} deployable applications</p>
+              <h2 className="text-2xl font-bold mb-1">App catalog</h2>
+              <p className="text-sm text-white/50">Showing {filteredApps.length} open-source apps</p>
             </div>
             <div className="text-xs font-semibold px-2 py-1 bg-white/5 border border-white/10 rounded text-white/60">
               Sorted by: <span className="text-white">Popularity</span>
@@ -306,7 +306,7 @@ export default function ExploreApps() {
                       }}
                     >
                       <Box className="w-2.5 h-2.5" />
-                      Deploy
+                      Learn more
                     </button>
                   </div>
                 </div>

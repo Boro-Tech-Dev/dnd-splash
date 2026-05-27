@@ -10,10 +10,32 @@ import {
 
 export type AppPage = "home" | "explore";
 
-function pageFromPath(pathname: string): AppPage {
-  return pathname === "/explore" || pathname.startsWith("/explore/")
-    ? "explore"
-    : "home";
+function pageFromLocation(): AppPage {
+  const hash = window.location.hash.replace(/^#/, "").toLowerCase();
+  if (hash === "explore") {
+    return "explore";
+  }
+  const { pathname } = window.location;
+  if (pathname === "/explore" || pathname.startsWith("/explore/")) {
+    return "explore";
+  }
+  return "home";
+}
+
+function normalizeExploreUrl() {
+  if (window.location.pathname !== "/") {
+    window.history.replaceState(null, "", `/#explore`);
+    return;
+  }
+  if (window.location.hash !== "#explore") {
+    window.location.hash = "explore";
+  }
+}
+
+function normalizeHomeUrl() {
+  if (window.location.pathname !== "/" || window.location.hash) {
+    window.history.replaceState(null, "", "/");
+  }
 }
 
 type AppNavigationContextValue = {
@@ -26,20 +48,37 @@ const AppNavigationContext = createContext<AppNavigationContextValue | null>(
 );
 
 export function AppNavigationProvider({ children }: { children: ReactNode }) {
-  const [page, setPage] = useState<AppPage>(() =>
-    pageFromPath(window.location.pathname),
-  );
+  const [page, setPage] = useState<AppPage>(() => pageFromLocation());
 
   useEffect(() => {
-    const onPopState = () => setPage(pageFromPath(window.location.pathname));
-    window.addEventListener("popstate", onPopState);
-    return () => window.removeEventListener("popstate", onPopState);
+    const sync = () => setPage(pageFromLocation());
+    window.addEventListener("hashchange", sync);
+    window.addEventListener("popstate", sync);
+    return () => {
+      window.removeEventListener("hashchange", sync);
+      window.removeEventListener("popstate", sync);
+    };
   }, []);
 
+  useEffect(() => {
+    if (page === "explore") {
+      normalizeExploreUrl();
+      return;
+    }
+    normalizeHomeUrl();
+  }, [page]);
+
   const navigate = useCallback((next: AppPage) => {
-    const path = next === "explore" ? "/explore" : "/";
-    if (window.location.pathname !== path) {
-      window.history.pushState(null, "", path);
+    if (next === "explore") {
+      if (window.location.hash !== "#explore") {
+        window.location.hash = "explore";
+      } else if (window.location.pathname !== "/") {
+        window.history.replaceState(null, "", "/#explore");
+      }
+    } else if (window.location.hash) {
+      window.location.hash = "";
+    } else if (window.location.pathname !== "/") {
+      window.history.replaceState(null, "", "/");
     }
     setPage(next);
   }, []);
