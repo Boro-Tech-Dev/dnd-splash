@@ -26,7 +26,6 @@ import {
   Circle
 } from "lucide-react";
 import Logo from "../assets/dd-core-logo.svg";
-import { ProblematticSolutionsFooter } from "./components/ProblematticSolutionsFooter";
 import { RouterProvider, createBrowserRouter } from "react-router";
 import ExploreApps from "./pages/ExploreApps";
 
@@ -689,8 +688,6 @@ export function Home() {
           </motion.div>
         </div>
       </section>
-
-      <ProblematticSolutionsFooter />
     </div>
   );
 }
