@@ -4,7 +4,7 @@ import { join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const DIST = join(__dirname, 'dist');
+const DIST = join(__dirname, 'out');
 const PORT = Number(process.env.PORT) || 3000;
 
 const MIME_TYPES = {
@@ -39,23 +39,65 @@ async function serveFile(res, filePath) {
   res.end(data);
 }
 
-createServer(async (req, res) => {
-  const urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
+async function resolveFilePath(urlPath) {
   const safePath = urlPath.replace(/\.\./g, '');
-  const filePath = join(DIST, safePath === '/' ? 'index.html' : safePath);
+  if (safePath === '/' || safePath === '') {
+    return join(DIST, 'index.html');
+  }
 
+  const direct = join(DIST, safePath);
   try {
-    const fileStat = await stat(filePath);
-    if (fileStat.isFile()) {
-      await serveFile(res, filePath);
-      return;
+    const directStat = await stat(direct);
+    if (directStat.isFile()) return direct;
+    if (directStat.isDirectory()) {
+      const indexInDir = join(direct, 'index.html');
+      const indexStat = await stat(indexInDir);
+      if (indexStat.isFile()) return indexInDir;
     }
   } catch {
-    if (isStaticAssetPath(safePath)) {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('Not Found');
-      return;
+    // continue
+  }
+
+  if (!safePath.endsWith('/') && !extname(safePath)) {
+    const withIndex = join(DIST, safePath, 'index.html');
+    try {
+      const indexStat = await stat(withIndex);
+      if (indexStat.isFile()) return withIndex;
+    } catch {
+      // continue
     }
+  }
+
+  if (!safePath.endsWith('.html')) {
+    const htmlPath = join(DIST, `${safePath.replace(/\/$/, '')}.html`);
+    try {
+      const htmlStat = await stat(htmlPath);
+      if (htmlStat.isFile()) return htmlPath;
+    } catch {
+      // continue
+    }
+  }
+
+  return null;
+}
+
+createServer(async (req, res) => {
+  const urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
+  const filePath = await resolveFilePath(urlPath);
+
+  if (filePath) {
+    try {
+      await serveFile(res, filePath);
+      return;
+    } catch {
+      // fall through
+    }
+  }
+
+  if (isStaticAssetPath(urlPath)) {
+    res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('Not Found');
+    return;
   }
 
   try {

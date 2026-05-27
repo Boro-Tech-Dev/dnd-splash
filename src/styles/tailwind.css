@@ -1,5 +1,0 @@
-@import "tailwindcss" source(none);
-@source "../app/App.tsx";
-@source "../app/appNavigation.tsx";
-@source "../app/pages/**/*.tsx";
-@source "../app/components/FadeIn.tsx";

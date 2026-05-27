@@ -1,3 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background-color: #0a0a0f;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -41,41 +57,12 @@
   animation: fadeInScale 0.5s ease-out both;
 }
 
-.fade-in-view {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-}
-
-.fade-in-view.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fade-in-view-scale {
-  opacity: 0;
-  transform: scale(0.95);
-  transition:
-    opacity 0.5s ease-out,
-    transform 0.5s ease-out;
-}
-
-.fade-in-view-scale.is-visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .animate-fade-in,
-  .animate-fade-in-scale,
-  .fade-in-view,
-  .fade-in-view-scale {
+  .animate-fade-in-scale {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
-    transition: none !important;
   }
 }

@@ -9,4 +9,4 @@ Run `npm i` to install the dependencies.
 
 Run `npm run dev` to start the development server.
 
-Run `npm run build && npm start` to build and serve production output from `dist/`.
+Run `npm run build && npm start` to build and serve production output from `out/`.
