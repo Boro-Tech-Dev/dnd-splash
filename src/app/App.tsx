@@ -1,5 +1,6 @@
+import { Suspense, lazy } from "react";
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { AppNavigationProvider, useAppNavigation } from "./appNavigation";
 import {
   Rocket,
   Terminal,
@@ -25,20 +26,11 @@ import {
   CheckCircle2,
   Circle
 } from "lucide-react";
-import { RouterProvider, createBrowserRouter } from "react-router";
-import ExploreApps from "./pages/ExploreApps";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    children: [
-      { index: true, Component: Home },
-      { path: "explore", Component: ExploreApps },
-    ],
-  },
-]);
+const ExploreApps = lazy(() => import("./pages/ExploreApps"));
 
-export function Home() {
+function Home() {
+  const { navigate } = useAppNavigation();
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white dark">
       {/* Hero Section */}
@@ -99,13 +91,17 @@ export function Home() {
                 >
                   Launching Q4 2026
                 </button>
-                <Link
-                  to="/explore"
+                <a
+                  href="/explore"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate("explore");
+                  }}
                   className="px-6 py-3 bg-white/5 border-2 border-[#00d9ff]/50 text-white rounded-xl hover:bg-white/10 hover:border-[#00d9ff] transition-all duration-300 backdrop-blur-sm"
                   style={{ fontWeight: 600, fontSize: '1.125rem', display: 'inline-block' }}
                 >
                   Learning Paths
-                </Link>
+                </a>
               </motion.div>
             </div>
 
@@ -661,13 +657,17 @@ export function Home() {
               >
                 Launching Q4 2026
               </button>
-              <Link
-                to="/explore"
+              <a
+                href="/explore"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("explore");
+                }}
                 className="px-8 py-4 bg-white/5 border-2 border-white/20 text-white rounded-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300 backdrop-blur-sm inline-block"
                 style={{ fontWeight: 700, fontSize: '1.25rem' }}
               >
                 Learning Paths
-              </Link>
+              </a>
             </div>
 
             <div className="flex flex-wrap justify-center gap-5 text-white/70">
@@ -754,6 +754,26 @@ function InfoCard({ icon: Icon, label, value, color }: { icon: any; label: strin
   );
 }
 
+function AppRoutes() {
+  const { page } = useAppNavigation();
+
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#0a0a0f] text-white flex items-center justify-center">
+          Loading…
+        </div>
+      }
+    >
+      {page === "explore" ? <ExploreApps /> : <Home />}
+    </Suspense>
+  );
+}
+
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AppNavigationProvider>
+      <AppRoutes />
+    </AppNavigationProvider>
+  );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router";
 import { motion } from "motion/react";
+import { useAppNavigation } from "../appNavigation";
 import {
   Search,
   Filter,
@@ -120,6 +120,7 @@ const apps = [
 const categories = ["All", "Content", "Analytics", "Backend", "Automation", "Tools"];
 
 export default function ExploreApps() {
+  const { navigate } = useAppNavigation();
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -147,9 +148,16 @@ export default function ExploreApps() {
       {/* Header */}
       <header className="relative z-10 border-b border-white/10 bg-black/40 backdrop-blur-md px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-6">
-          <Link to="/" className="text-white/60 hover:text-white transition-colors flex items-center gap-2 text-sm font-semibold">
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("home");
+            }}
+            className="text-white/60 hover:text-white transition-colors flex items-center gap-2 text-sm font-semibold"
+          >
             <ArrowLeft className="w-4 h-4" /> Back to Dashboard
-          </Link>
+          </a>
           <div className="h-4 w-px bg-white/20" />
           <h1 className="text-xl font-bold flex items-center gap-2">
             <Terminal className="w-5 h-5 text-[#00d9ff]" />
