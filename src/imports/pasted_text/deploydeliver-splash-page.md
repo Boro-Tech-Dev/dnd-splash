@@ -319,7 +319,7 @@ The market rewards people who can ship.
 Stop waiting to feel ready.
 Practical skills create leverage.
 Your next career move might start as a side project.
-Final Figma Instruction
+Final design notes
 
 Create a single-page responsive landing page design for desktop first, with mobile considerations. Use a dark premium dashboard aesthetic with compact sections, sharp CTAs, financial-dashboard style UI modules, deployment/product cards, and strong emotional messaging around career pressure, skill development, side hustles, and practical technical empowerment.
 

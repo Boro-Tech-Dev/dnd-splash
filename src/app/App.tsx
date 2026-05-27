@@ -25,7 +25,6 @@ import {
   CheckCircle2,
   Circle
 } from "lucide-react";
-import Logo from "../assets/dd-core-logo.svg";
 import { RouterProvider, createBrowserRouter } from "react-router";
 import ExploreApps from "./pages/ExploreApps";
 
@@ -120,11 +119,17 @@ export function Home() {
                 className="absolute inset-0 max-w-sm mx-auto lg:max-w-none lg:mx-0 rounded-full blur-[80px] opacity-30 pointer-events-none"
                 style={{ background: 'radial-gradient(circle, #00d9ff 0%, transparent 70%)' }}
               />
-              <img
-                src={Logo}
-                alt="DeployDeliver"
-                className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md h-auto drop-shadow-[0_0_60px_rgba(0,217,255,0.35)]"
-              />
+              <div
+                className="relative flex items-center justify-center w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl border-2 border-[#00d9ff]/40 bg-[#0a0a0f]/80 backdrop-blur-md drop-shadow-[0_0_60px_rgba(0,217,255,0.35)]"
+                aria-label="DeployDeliver"
+              >
+                <span
+                  className="text-[#00d9ff] select-none"
+                  style={{ fontSize: "clamp(5rem, 12vw, 8rem)", fontWeight: 800, lineHeight: 1 }}
+                >
+                  D
+                </span>
+              </div>
             </motion.div>
           </div>
 
