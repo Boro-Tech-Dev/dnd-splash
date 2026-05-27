@@ -1,11 +1,30 @@
 import { createServer } from 'node:http';
+import { existsSync } from 'node:fs';
 import { readFile, stat } from 'node:fs/promises';
 import { join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const DIST = join(__dirname, 'out');
 const PORT = Number(process.env.PORT) || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
+
+function resolveDistDir() {
+  const preferred = process.env.STATIC_DIR;
+  if (preferred) {
+    return join(__dirname, preferred);
+  }
+  const outDir = join(__dirname, 'out');
+  if (existsSync(join(outDir, 'index.html'))) {
+    return outDir;
+  }
+  const distDir = join(__dirname, 'dist');
+  if (existsSync(join(distDir, 'index.html'))) {
+    return distDir;
+  }
+  return outDir;
+}
+
+const DIST = resolveDistDir();
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -106,6 +125,6 @@ createServer(async (req, res) => {
     res.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('Build output not found. Run npm run build first.');
   }
-}).listen(PORT, () => {
-  console.log(`Serving ${DIST} on port ${PORT}`);
+}).listen(PORT, HOST, () => {
+  console.log(`Serving ${DIST} on ${HOST}:${PORT}`);
 });
