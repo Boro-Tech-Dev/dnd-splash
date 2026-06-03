@@ -1,4 +1,4 @@
-# Ensure Next static export runs with PostCSS/Tailwind available.
+# PostCSS/Tailwind must run at build time.
 [phases.install]
 cmds = ["npm ci"]
 

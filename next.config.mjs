@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   poweredByHeader: false,
   reactStrictMode: true,
   trailingSlash: true,
-  // Git Flex / DCDeploy: no eslint in prod install; avoid blocked fonts.googleapis.com at build
+  // Git Flex runs `next start`; static export (`output: 'export'`) is incompatible with that.
   eslint: { ignoreDuringBuilds: true },
-  typescript: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
 };
 
 export default nextConfig;

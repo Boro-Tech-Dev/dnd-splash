@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build && node scripts/sync-dist.mjs",
-    "start": "node server.js"
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p ${PORT:-3000}"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.5",
