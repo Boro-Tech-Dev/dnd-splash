@@ -11,6 +11,6 @@ Run `npm run dev` to start the development server.
 
 Run `npm run build && npm start` to build and serve production output.
 
-`npm run build` writes **`out/`** (Next export) and copies it to **`dist/`** for hosts that still publish `dist/`. The server prefers `out/`, then `dist/`.
+`npm start` runs `next start` (required for DCDeploy Git Flex, which auto-detects Next.js).
 
 Deploy must run **`npm run build`** before start (Tailwind/PostCSS are required at build time). A `Dockerfile` and `nixpacks.toml` are included for platforms that need explicit build steps.
